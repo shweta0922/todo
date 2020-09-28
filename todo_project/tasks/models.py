@@ -35,3 +35,7 @@ class Tasks(models.Model):
 
     def __str__(self):
         return f'{self.content}';
+
+    def get_all_tags (self,delimeter=','):
+         return delimeter.join([tag.name for tag in self.tags.all()])
+

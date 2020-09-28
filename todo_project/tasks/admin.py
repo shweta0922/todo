@@ -24,14 +24,20 @@ mark_pending.short_description='Mark these task as pending'
 class  TaskAdmin(admin.ModelAdmin):
     fields = [
         'content',
-        ('deadline','status')
+        ('tags','deadline')
     ]
-    list_display = ['content','status','deadline']
+    list_display = ['content','status','deadline','get_all_tags']
     list_editable = ['status']
     actions = [mark_complete,mark_pending]
     list_filter = ['status','deadline','tags']
     search_fields = ['content','tags__name']
     ordering = ['deadline']
+
+
+class TagAdmin(admin.ModelAdmin):
+    list_display = ['name']
+    list_filter = ['name']
+    search_fields = ['name']
 
 admin.site.register(models.Tasks,TaskAdmin)
 admin.site.register(models.Tag)
