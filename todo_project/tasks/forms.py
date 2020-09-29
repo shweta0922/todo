@@ -2,7 +2,10 @@
 
 from django import forms
 
+
 from tasks.models import Tasks
+
+from tasks.models import Tag
 
 
 class ContactForm(forms.Form):
@@ -18,3 +21,9 @@ class TaskForm(forms.ModelForm):
         widgets = {
             'deadline' : forms.DateTimeInput( attrs = {'type' : 'datetime-local'})
         }
+
+class TagForm(forms.ModelForm):
+    class Meta:
+        model = Tag
+        fields = '__all__'
+

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add tag</title>
+</head>
+<body>
+<h1>Add tag</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+        <tr>
+        <td colspan="2"> <input type="submit" name="submit" value="Add Tag"></td>
+        </tr>
+    </table>
+
+</form>
+</body>
+</html>
